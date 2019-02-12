@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  remote_user: ec2-user
+  tasks:
+
+   - name: Configure Mongo DB Repository
+     yum_repository:
+        name: mongodb
+        description: MongoDB Yum Repo
+        file: mongo
+        baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+        gpgcheck: yes
+        gpgkey: https://www.mongodb.org/static/pgp/server-4.0.asc
+        enabled: yes
